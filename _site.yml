@@ -1,7 +1,8 @@
-name: "nicks-website"
-output_dir: "."
+name: "my-website"
 navbar:
-  title: "Nicks Website"
+  title: "My Website"
   left:
     - text: "Home"
-      href: eda_html.html
+      href: index.html
+    - text: "About"
+      href: about.html
