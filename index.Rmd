@@ -20,10 +20,10 @@ pdf.options(encoding = 'ISOLatin2')
 ```
 
 ```{r read_data, echo = FALSE, message = FALSE, warning = FALSE, cache = TRUE}
-train <- read_csv('/Users/joshuayoung88/Documents/cb/sales/sales_train.csv')
-item_categories <- read_csv('/Users/joshuayoung88/Documents/cb/sales/item_categories.csv')
-items <- read_csv('/Users/joshuayoung88/Documents/cb/sales/items.csv')
-shops <- read_csv('/Users/joshuayoung88/Documents/cb/sales/shops.csv')
+train <- read_csv('sales_train.csv')
+item_categories <- read_csv('item_categories.csv')
+items <- read_csv('items.csv')
+shops <- read_csv('shops.csv')
 ```
 
 

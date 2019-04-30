@@ -2,4 +2,4 @@
 title: "About Me"
 ---
 
-Why I am awesome. 
+My name is Josh Young. I am a data scientist. 
