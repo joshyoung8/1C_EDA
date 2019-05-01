@@ -2,10 +2,11 @@ name: "my-website"
 navbar:
   title: "Josh Young"
   left:
-    - text: "1C Company"
-      href: index.html
     - text: "About"
       href: about.html
+    - text: "1C Company"
+      href: index.html
+
 output:
     html_document:
         theme: flatly
