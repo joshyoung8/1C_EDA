@@ -1,8 +1,8 @@
 name: "my-website"
 navbar:
-  title: "My Website"
+  title: "Josh Young"
   left:
-    - text: "Home"
+    - text: "1C Company"
       href: index.html
     - text: "About"
       href: about.html
