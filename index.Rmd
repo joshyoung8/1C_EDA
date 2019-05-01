@@ -27,7 +27,7 @@ shops <- read_csv('shops.csv')
 ```
 
 
-### The purpose of this kaggle competition https://www.kaggle.com/c/competitive-data-science-predict-future-sales/overview/evaluation is to create a time series to predict daily sales for each product and store for a Russian based software firm - 1C company. Below we have a exploratory data analysis.  
+The purpose of this kaggle competition https://www.kaggle.com/c/competitive-data-science-predict-future-sales/overview/evaluation is to create a time series to predict daily sales for each product and store for a Russian based software firm - 1C company. Below we have a exploratory data analysis.  
 
 First we want to take a look at the type of data we are working with for this analysis. Below is a sample of 5 observations where we have the date, date block, shop id, item id, item price, and how many items were sold at that shop that day.  
 
@@ -104,14 +104,14 @@ train %>%
 
 ### What are the top 10 categories of items being sold?
 ```{r echo = FALSE, message = FALSE, warning = FALSE, out.width='85%'}
-include_graphics('/Users/joshuayoung88/Documents/cb/sales/sales.png')
+include_graphics('sales.png')
 ```
 
 * For 1C it appears that movies and video games are the biggest in terms of units sold.
 
 ### What are the top 10 categories for dollars made on items sold?
 ```{r echo = FALSE, message = FALSE, warning = FALSE, out.width='85%'}
-include_graphics('/Users/joshuayoung88/Documents/cb/sales/sales_1.png')
+include_graphics('sales_1.png')
 ```
 
 * For dollar amounts, video games take the cake with the to 5 sales being video game products.  
