@@ -2,4 +2,25 @@
 title: "About Me"
 ---
 
-My name is Josh Young. I am a data scientist. 
+- __Name:__ Josh Young
+- __Occupation:__ Data Scientist  
+
+You can see examples of my work in the following places.
+
+## 1C Company Time Series  
+
+- You can view this by clicking on the 1C company tab above.  
+- Data analysis for daily sales per store and item sales for company.  
+- Time series for a prediction for the stores sales over the next 200 days.  
+
+## [Fantasy Football Research](https://joshyoung.shinyapps.io/fantasy_football_rankings/)  
+
+- An interactive app to help you crush your fantasy league.  
+- Lets you adjust scoring to your own league settings.  
+- Historical data for past seasons and players seasons.  
+
+## [Basketball Correlation Explorer](https://joshyoung.shinyapps.io/advanced/)  
+
+- An interactive app that lets you see which variables are correlated. 
+- Uses historical data from the past 15 seasons.  
+- Plots a regression line and gives you a R-squared coefficient for any two advanced stats you pick.
