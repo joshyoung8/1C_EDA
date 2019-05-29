@@ -24,3 +24,8 @@ You can see examples of my work in the following places.
 - An interactive app that lets you see which variables are correlated. 
 - Uses historical data from the past 15 seasons.  
 - Plots a regression line and gives you a R-squared coefficient for any two advanced stats you pick.
+
+## [YouTube Channel](https://www.youtube.com/channel/UCPJIY0oU-CJRRdweKZ44UZw)  
+
+- My YouTube channel which has 900+ subscribers.  
+- I teach about basic R computing.
