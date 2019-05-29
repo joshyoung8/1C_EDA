@@ -1,13 +1,12 @@
 name: "my-website"
 navbar:
-  title: "Josh Young"
+  title: "My Website"
   left:
     - text: "About"
-      href: about.html
-    - text: "1C Company"
       href: index.html
-
+    - text: "1C Company"
+      href: about.html
 output:
-    html_document:
-        theme: flatly
-        css: style.css
+  html_document:
+    theme: flatly
+    css: style.css
