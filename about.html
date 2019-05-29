@@ -11,7 +11,7 @@
 
 
 
-<title>About Me</title>
+<title></title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -302,12 +302,224 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About Me</h1>
 
 </div>
 
 
-<p>My name is Josh Young. I am a data scientist.</p>
+<p>The purpose of this kaggle competition <a href="https://www.kaggle.com/c/competitive-data-science-predict-future-sales/overview/evaluation" class="uri">https://www.kaggle.com/c/competitive-data-science-predict-future-sales/overview/evaluation</a> is to create a time series to predict daily sales for each product and store for a Russian based software firm - 1C company. Below we have a exploratory data analysis.</p>
+<p>First we want to take a look at the type of data we are working with for this analysis. Below is a sample of 5 observations where we have the date, date block, shop id, item id, item price, and how many items were sold at that shop that day.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">date</th>
+<th align="right">date_block_num</th>
+<th align="right">shop_id</th>
+<th align="right">item_id</th>
+<th align="right">item_price</th>
+<th align="right">item_cnt_day</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2013-09-13</td>
+<td align="right">8</td>
+<td align="right">18</td>
+<td align="right">5823</td>
+<td align="right">2599</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">2014-12-10</td>
+<td align="right">23</td>
+<td align="right">6</td>
+<td align="right">2416</td>
+<td align="right">449</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">2013-08-14</td>
+<td align="right">7</td>
+<td align="right">42</td>
+<td align="right">20377</td>
+<td align="right">1199</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">2014-03-23</td>
+<td align="right">14</td>
+<td align="right">58</td>
+<td align="right">16069</td>
+<td align="right">659</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">2014-11-09</td>
+<td align="right">22</td>
+<td align="right">55</td>
+<td align="right">13098</td>
+<td align="right">2000</td>
+<td align="right">10</td>
+</tr>
+</tbody>
+</table>
+<div id="summary-statistics-for-our-data." class="section level3">
+<h3>Summary statistics for our data.</h3>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">date</th>
+<th align="left">date_block_num</th>
+<th align="center">shop_id</th>
+<th align="center">item_id</th>
+<th align="center">item_price</th>
+<th align="center">item_cnt_day</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td align="center">Min. :2013-01-01</td>
+<td align="left">Min. : 0.00</td>
+<td align="center">Min. : 0</td>
+<td align="center">Min. : 0</td>
+<td align="center">Min. : -1.0</td>
+<td align="center">Min. : -22.000</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="center">1st Qu.:2013-08-01</td>
+<td align="left">1st Qu.: 7.00</td>
+<td align="center">1st Qu.:22</td>
+<td align="center">1st Qu.: 4476</td>
+<td align="center">1st Qu.: 249.0</td>
+<td align="center">1st Qu.: 1.000</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td align="center">Median :2014-03-04</td>
+<td align="left">Median :14.00</td>
+<td align="center">Median :31</td>
+<td align="center">Median : 9343</td>
+<td align="center">Median : 399.0</td>
+<td align="center">Median : 1.000</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="center">Mean :2014-04-03</td>
+<td align="left">Mean :14.57</td>
+<td align="center">Mean :33</td>
+<td align="center">Mean :10197</td>
+<td align="center">Mean : 890.9</td>
+<td align="center">Mean : 1.243</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td align="center">3rd Qu.:2014-12-05</td>
+<td align="left">3rd Qu.:23.00</td>
+<td align="center">3rd Qu.:47</td>
+<td align="center">3rd Qu.:15684</td>
+<td align="center">3rd Qu.: 999.0</td>
+<td align="center">3rd Qu.: 1.000</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="center">Max. :2015-10-31</td>
+<td align="left">Max. :33.00</td>
+<td align="center">Max. :59</td>
+<td align="center">Max. :22169</td>
+<td align="center">Max. :307980.0</td>
+<td align="center">Max. :2169.000</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The dates for these data range from <strong>Jan 1 2013</strong> to <strong>Oct 10 2015.</strong></li>
+<li>There are <strong>60</strong> shops where the store id goes from <strong>0 - 59.</strong></li>
+<li>There are <strong>22,170</strong> different items for sale that range from <strong>0 - 22,169.</strong></li>
+<li>The item price varies from <strong>-1(maybe incorrect) to 307,980</strong> with an average sale price of <strong>890.9.</strong></li>
+<li>The number of specific items sold in a day range from <strong>-22 (22 returns) to 2169</strong> units sold.</li>
+</ul>
+</div>
+<div id="number-of-observations-in-our-data." class="section level3">
+<h3>Number of observations in our data.</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Number of Rows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2,935,849</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>We have 2,935,849 rows in our dataset.</li>
+</ul>
+
+</div>
+<div id="in-total-there-are-60-stores-that-are-run-by-1c-company.-what-are-the-top-stores-in-terms-of-overall-sales" class="section level3">
+<h3>In total there are 60 stores that are run by 1C company. What are the top stores in terms of overall sales?</h3>
+<p><img src="about_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<ul>
+<li>The average store appears to have around 50,000,000 in sales.</li>
+<li>Store 31 had the highest sales of all 60 stores.</li>
+<li>Stores 31 and 25 have almost 4 times the sales of the average store. (200,000,000 vs 50,000,000)</li>
+</ul>
+</div>
+<div id="do-what-days-of-the-week-people-are-shopping" class="section level3">
+<h3>Do what days of the week people are shopping?</h3>
+<p><img src="about_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<ul>
+<li>The highest sales occur for 1C on the weekends with the busiest day being Saturday.</li>
+<li>Monday is the slowest day by a good margin.</li>
+</ul>
+</div>
+<div id="what-are-the-top-10-categories-of-items-being-sold" class="section level3">
+<h3>What are the top 10 categories of items being sold?</h3>
+<p><img src="sales.png" width="85%" /></p>
+<ul>
+<li>For 1C it appears that movies and video games are the biggest in terms of units sold.</li>
+</ul>
+</div>
+<div id="what-are-the-top-10-categories-for-dollars-made-on-items-sold" class="section level3">
+<h3>What are the top 10 categories for dollars made on items sold?</h3>
+<p><img src="sales_1.png" width="85%" /></p>
+<ul>
+<li>For dollar amounts, video games take the cake with the to 5 sales being video game products.<br />
+</li>
+<li>This makes sense as video games are higher dollar when compared to video games, but had similar units sold.</li>
+</ul>
+</div>
+<div id="time-series-for-all-60-stores" class="section level3">
+<h3>Time series for all 60 stores</h3>
+<p><img src="about_files/figure-html/unnamed-chunk-8-1.png" width="960" /></p>
+<ul>
+<li>There is a lot going on in these charts. These show all 60 stores and their sales every day between 2013 and 2015.</li>
+<li>The big take away from this graph is that some of the stores were not open for the whole time period (maybe closed down, maybe not reporting numbers)</li>
+<li>Stores 0, 1, 8, 23, and 32 apper to have shut down early 2013.</li>
+<li>Stores 34, 36, 39, 48 and 49 appear not to have opened until after the inital date.</li>
+</ul>
+</div>
+<div id="lets-zoom-in-and-take-a-look-at-one-store-here-are-sales-per-day-for-store-31" class="section level3">
+<h3>Let’s zoom in and take a look at one store, here are sales per day for store 31</h3>
+<p><img src="about_files/figure-html/unnamed-chunk-9-1.png" width="960" /></p>
+<ul>
+<li>For store 31, at the end of year time sales almost triple the average for the rest of the year.</li>
+</ul>
+
+</div>
+<div id="predicting-sales-for-the-next-200-days." class="section level3">
+<h3>Predicting sales for the next 200 days.</h3>
+<p><img src="about_files/figure-html/unnamed-chunk-10-1.png" width="960" /></p>
+<ul>
+<li>We predicted total daily sales for the next 200 days using the ARIMA model.</li>
+<li>This model takes into account seasonality for our increased sales at the end of the year.</li>
+<li>We have a 95% confidence band around our predictions.</li>
+</ul>
+</div>
 
 
 
