@@ -1,6 +1,6 @@
 name: "my-website"
 navbar:
-  title: "My Website"
+  title: "Josh Young"
   left:
     - text: "About"
       href: index.html
@@ -9,4 +9,3 @@ navbar:
 output:
   html_document:
     theme: flatly
-    css: style.css
